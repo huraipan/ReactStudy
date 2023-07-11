@@ -1,0 +1,10 @@
+1. node 검색
+2. node 설치
+3. 폴더 생성
+4. 터미널 열기
+5. npx create-react-app 프로젝트명
+6. 에러
+7. 환경변수 環境変数を編集
+8. C:\Users\자신의 컴퓨터 이름\AppData\Roaming\npm
+9. 밑에 환경변수 막힘
+10. システム環境変数を編集
