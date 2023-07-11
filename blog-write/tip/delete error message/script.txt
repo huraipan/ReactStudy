@@ -1,0 +1,15 @@
+# ターミナルからWARNINGメッセージを削除
+reactでコードを書くときターミナルにWARNINGメッセージがよくでます。
+![1.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/37b14392-72a0-c4a0-665d-1b39ea526e28.png)
+
+
+そのようなメッセージは必要ですが、
+簡単な作業やちょっと試してみるためにコードを書くときは邪魔に感じる時もあります。
+
+実際の開発ではおすすめしませんが、上記の場合は書いてください。
+
+```react
+/* eslint-disable */
+```
+![2.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/c3449977-0340-24bb-fe17-6cbdc3856669.png)
+これでWARNINGメッセージが出なくなりました。

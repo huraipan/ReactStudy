@@ -1,10 +1,50 @@
-1. node 검색
-2. node 설치
-3. 폴더 생성
-4. 터미널 열기
-5. npx create-react-app 프로젝트명
-6. 에러
-7. 환경변수 環境変数を編集
-8. C:\Users\자신의 컴퓨터 이름\AppData\Roaming\npm
-9. 밑에 환경변수 막힘
-10. システム環境変数を編集
+# スタートセッティング
+reactの開発環境設定です。
+
+1. まずnode.jsをインストールします。
+![1.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/f18ef4d4-e017-fd47-ac63-3c7fe218f80c.png)
+
+windowsなら左です。
+![2.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/9ccb4c60-cae1-7b8e-6c88-c6a88dfd8148.png)
+
+ダウンロードしたmisファイルを実行します。
+![3.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/d8ab2ff3-fec0-7176-a69e-6d45ae66dbad.png)
+
+全てをnextをクリックします。
+![4.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/69413eb2-5abe-62c4-4496-0abb08674b43.png)
+
+ダウンロードが完了したら、フォルダを作って
+右クリック、ターミナルで開くをクリックします。
+![5.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/b59fbad7-64b1-d6d8-95a7-56320130b465.png)
+
+次のように入力します。
+```terminal
+npx create-react-app プロジェクト名
+```
+![6.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/27693c35-a77c-06cf-d629-35544d18f49e.png)
+
+完了した画面です。
+![7.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/55f82a8a-2758-af0f-b141-c18e1b42765e.png)
+エラーが出る場合下のリンクを参考してください。
+[npxエラー]( https://qiita.com/huraipan/items/6ddbe10bbcacab2df87f "npxエラー" )
+
+
+vscodeでフォルダを開きます。
+![16.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/b16c92cf-d6dc-d17a-51df-f94273d19e74.png)
+
+![18.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/636abaf6-8997-476f-28e6-b7e496b6f184.png)
+
+開いたらターミナルを開けてください
+![18.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/8ec603b9-2db4-6afb-d474-7ccab2a56458.png)
+
+ターミナルで
+```terminal
+npm start
+```
+を入力してください。
+![19.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/4cc7390a-4ffd-0e9c-0e7f-84d7664aa2b6.png)
+npmが入力できないばあいは下のリンクを参考してください。
+[npmエラー]( https://qiita.com/huraipan/items/07e1d40cc5ad9c1fb7aa "npmエラー" )
+
+待てばこの画面が出ます。:ok_hand:
+![20.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/702259e2-d217-e009-d2fa-be46515a1e07.png)

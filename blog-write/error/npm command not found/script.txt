@@ -1,0 +1,31 @@
+# npm command not found エラー
+```terminal
+npm start
+```
+npm 関連命令語を実行しました。
+![1.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/cc0f14fd-a645-bc59-4a0e-23d59bbf4811.png)
+しかし次のようなエラーメッセージが出ました。
+この問題を解決するためにはいくつか設定をしなければならないです。
+
+まず環境変数編集に入ります。
+![10.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/ad8170ec-e777-dc88-6855-13e0eee14ac9.png)
+二つ目はダメです。
+
+![6.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/45dbce79-773d-cb57-6b25-6d5cc57049c7.png)
+
+
+![3.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/5866e264-24e4-73b8-4f44-e127bf61420f.png)
+自分のパソコン名前はCドライバーでユーザーに入ったら分かります。
+```
+C:\Users\自分のパソコン名前\AppData\Roaming\npm
+```
+
+![4.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/795a9556-b7e7-f936-30b1-128d69c41c7e.png)
+
+![7.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/30ab3869-52b4-7678-e8a8-46929622f26b.png)
+```
+C:\Program Files\nodejs\
+```
+![8.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/5405ac63-1f9d-a425-40dd-dd56bda218ae.png)
+
+これで解決できます！
