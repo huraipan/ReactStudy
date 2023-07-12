@@ -1,0 +1,112 @@
+# onClick
+今日は簡単に**react**で**onClick**の使用方法を見てみましょう。
+
+### 1. 準備
+
+>いいねボタン
+
+ハートを押すと数字が上がる機能を作りましょう。
+まずいいねボタンを作ります。
+```react
+<h1> いいね！ <span>❤️</span> 0 </h1>
+```
+![スクリーンショット 2023-07-12 142205.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/6b475424-4275-c8c0-e545-3e4c8525ed65.png)
+
+
+数字の部分は変わるのでstateに変更してあげます。
+[state使い方](https://qiita.com/huraipan/items/86eb1c9fa2e334fdde6f)
+
+```react
+function App(){
+  
+  let [heart, setHeart] = useState(0);
+  return (
+    <h1> いいね！ <span>❤️</span> { heart } </h1>
+  )
+}
+```
+<br/>
+
+### 2. どう使う?
+```react
+<div onClick={関数}>
+```
+従来のジャバスクリプトコードとは異なり、**cが大文字**で **中括弧**を入れるのが特徴です。
+
+1. あらかじめ用意した関数を入れる。
+    ```react
+    function App(){
+  
+      function 関数名(){
+        console.log(1)
+      }
+      return (
+         <div onClick={関数名}> こんにちは </div>
+      )
+    }
+    ```
+
+2. すぐ入れる。
+    ```react
+    <div onClick={ function(){ コード } }> 
+    <div onClick={ () => { コード } }> // arrow functionを使っても大丈夫です。
+    ```
+
+
+
+### 3. いいねを完成しましょう！
+私はarrow functionをつかいますた。
+```react
+function App(){
+  
+  let [ heart, setHeart ] = useState(0);
+  return (
+      <h4> いいね！ <span onClick={ ()=>{ setHeart(heart + 1) } } >❤️</span> { heart }</h4>
+  )
+}
+```
+
+![スクリーンショット 2023-07-12 144340.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/e4775baa-b43d-77a1-47c1-14c8fc545fdb.png)
+
+
+# onClickによるarrayデータの変更
+今回は**onClick**を使って**array**のデータを切り替えます。
+
+今回は答えからお見せします。
+```react
+function App(){
+  
+  let [location, setLocation] = useState( ['東京', '大阪', '名古屋'] );  
+  
+  return (
+    <button onClick={ ()=>{ 
+      let copy = [...location];
+      copy[0] = '福岡';
+      setLocation(copy)
+    } }> 修正 </button>
+  )
+}
+```
+
+arrayにあるデータ値を変える方法は本当に多様です。
+
+最も注意すべき点はこれです。
+```react
+let copy = location;
+copy[0] = '福岡';
+setLocation(copy)
+```
+これでは正しく変更できないんです。
+その理由は**state変更関数**は、値が変更された場合にのみ機能します。
+locationは**arry**なので、中には**アドレス値**が保存されています。
+そのため、copy関数に入れても同じ**アドレス値**がコピーされます。
+それなら結局setLocation(copy)にある**copy**は最初と同じですね。
+
+
+だからこれはオッケーです
+```react
+let copy = [...location];
+copy[0] = '福岡';
+setLocation(copy)
+```
+ちなみに[...location]の...は括弧をなくす役割をします。
