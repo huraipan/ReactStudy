@@ -1,0 +1,100 @@
+# map
+
+**JSX中括弧**内には**for文**が書けません。
+なのでmap()を使います。
+<br/><br/><br/>
+
+> map使い方
+
+**array**資料型に**map**を貼り付けることができます。
+```react
+let arr = [1, 2, 3];
+arr.map(function(a){
+  console.log(a)
+});
+```
+結果は1, 2, 3一つずつ出ます。
+arrayの個数だけ回ります。
+<br/><br/><br/>
+
+> htmlに適用
+
+ここに繰り返しコードがあります。
+```react
+function App() {
+  let [location, setLocation] = useState(['東京', '大阪', '青森']);
+
+
+  return (
+    <div className="App">
+      <div>
+        <h4>{location[0]} </h4>
+      </div>
+      <div>
+        <h4>{location[1]} </h4>
+      </div>
+      <div>
+        <h4>{location[2]} </h4>
+      </div>
+    </div>
+  );
+}
+```
+<br/><br/><br/>
+
+
+まず基本的な枠組みを先に決めてあげます。
+```react
+      { 
+        array.map(function(){
+          return ( 内容 )
+        }) 
+      }
+```
+<br/><br/><br/>
+
+arrayにあるデータ数が多いほどリピート文が実行されるので、ここには従来使用していたlocationを入れると良いでしょう。
+```react
+      { 
+        location.map(function(a){
+          return ( 
+                  <div>
+                    <h4>{a} </h4>
+                  </div>
+             )
+        }) 
+      }
+```
+
+aにはarrayの各値が入ります。
+命名は皆さんの好きなようにしてもいいです。
+
+もしfunctionにパラメータがもう一つ入るとしたら？
+```react
+      { 
+        location.map(function(a, i){
+          return ( )
+        }) 
+      }
+```
+ここでiは何でしょうか？
+これは0から始まり、arrayの数だけ増加します。
+<br/><br/><br/>
+
+最後に私のコードに従っている場合は、コンソール ウィンドウでこのようなメッセージを表示できます。
+![1.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3509555/d14536b0-e21e-0a69-0f2e-84b66e0d316e.png)
+これはmapを使うとき書く要素はkeyが必要です。
+
+```react
+      { 
+        location.map(function(a, i){
+          return ( 
+                  <div key={i}>
+                    <h4>{a} </h4>
+                  </div>
+             )
+        }) 
+      }
+```
+
+以上です。
