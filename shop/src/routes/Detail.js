@@ -1,12 +1,41 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import styled from 'styled-components'
+
+
 
 function Detail(props) {
+
+  let [alert, setAlert] = useState(true);
+  let [count, setCount] = useState(0);
   let {id} = useParams();
   let 찾은상품 = props.shoes.find(function(x){
     return x.id == id
   });
+
+  useEffect(()=>{
+    let a = setTimeout(()=>{ setAlert(false) }, 2000)
+
+    return ()=>{
+      clearTimeout(a);
+    }
+  }, [])
+
+
+
+
   return (
     <div className="container">
+      {
+        alert == true
+        ? <div className="alert alert-warning">
+          2초이내 구매시 할인
+          </div>
+        : null
+      }
+      
+      {count}
+      <button onClick={()=>{setCount(count+1)}}>button</button>
       <div className="row">
         <div className="col-md-6">
           <img

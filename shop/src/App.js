@@ -5,6 +5,7 @@ import { Button, Navbar, Container, Nav } from "react-bootstrap";
 import data from "./data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from './routes/Detail.js'
+import axios from 'axios'
 
 function App() {
   let [shoes] = useState(data);
@@ -37,6 +38,11 @@ function App() {
                   })}
                 </div>
               </div>
+              <button onClick={()=>{
+                axios.get('https://codingapple1.github.io/shop/data2.json')
+                .then((result)=>{console.log(result.data)})
+                .catch(()=>{console.log('fail')})
+              }}>button</button>
             </>
           }
         />
