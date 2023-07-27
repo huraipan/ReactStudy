@@ -8,7 +8,7 @@ import Detail from './routes/Detail.js'
 import axios from 'axios'
 
 function App() {
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
 
   return (
@@ -40,7 +40,11 @@ function App() {
               </div>
               <button onClick={()=>{
                 axios.get('https://codingapple1.github.io/shop/data2.json')
-                .then((result)=>{console.log(result.data)})
+                .then((result)=>{
+                  console.log(result.data)
+                  let copy  = [...shoes, ...result.data];
+                  setShoes(copy)
+                })
                 .catch(()=>{console.log('fail')})
               }}>button</button>
             </>

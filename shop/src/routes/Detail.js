@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from 'styled-components'
+import { Nav } from 'react-bootstrap'
 
 
 
@@ -12,6 +13,9 @@ function Detail(props) {
   let 찾은상품 = props.shoes.find(function(x){
     return x.id == id
   });
+  let [tab, setTab] = useState(0)
+
+
 
   useEffect(()=>{
     let a = setTimeout(()=>{ setAlert(false) }, 2000)
@@ -33,9 +37,7 @@ function Detail(props) {
           </div>
         : null
       }
-      
-      {count}
-      <button onClick={()=>{setCount(count+1)}}>button</button>
+
       <div className="row">
         <div className="col-md-6">
           <img
@@ -50,8 +52,26 @@ function Detail(props) {
           <button className="btn btn-danger">주문하기</button>
         </div>
       </div>
+      <Nav variant="tabs"  defaultActiveKey="link0">
+        <Nav.Item>
+          <Nav.Link onClick={()=>{ setTab(0)}} eventKey="link0">버튼0</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link onClick={()=>{ setTab(1)}} eventKey="link1">버튼1</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link onClick={()=>{ setTab(2)}} eventKey="link2">버튼2</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <TabContent tab={tab} />
     </div>
   );
+}
+
+
+function TabContent({tab}){
+
+  return [<div>0</div>, <div>1</div>, <div>2</div>][tab]
 }
 
 export default Detail;
