@@ -7,6 +7,7 @@ import { Nav } from 'react-bootstrap'
 
 function Detail(props) {
 
+  let [fade2, setFade2] = useState('');
   let [alert, setAlert] = useState(true);
   let [count, setCount] = useState(0);
   let {id} = useParams();
@@ -25,11 +26,18 @@ function Detail(props) {
     }
   }, [])
 
+  useEffect(()=>{
+    setFade2('end')
+    return ()=>{
+      setFade2('')
+    }
+  }, [])
+
 
 
 
   return (
-    <div className="container">
+    <div className={"container start " + fade2}>
       {
         alert == true
         ? <div className="alert alert-warning">
@@ -71,7 +79,19 @@ function Detail(props) {
 
 function TabContent({tab}){
 
-  return [<div>0</div>, <div>1</div>, <div>2</div>][tab]
+  let [fade, setFade] = useState('')
+
+  useEffect(()=>{
+    setTimeout(()=>{ setFade('end') }, 100)
+    
+    return ()=>{
+      setFade('')
+    }
+  }, [tab])
+
+  return (<div className={"start " + fade}>
+            { [<div>0</div>, <div>1</div>, <div>2</div>][tab] }
+          </div>)
 }
 
 export default Detail;
